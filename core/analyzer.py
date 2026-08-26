@@ -62,13 +62,17 @@ class SastAnalyzer(ast.NodeVisitor):
             print(f"Error: Path '{target_path}' does not exist.")
             return self.findings
 
+        excluded_dirs = {".venv", "venv", ".git", "tests"}
+
         if path.is_file():
             if path.suffix == ".py":
                 self.analyze_file(str(path))
             else:
                 print("Target is not a .py file.")
+
         elif path.is_dir():
             for py_file in path.rglob("*.py"):
-                self.analyze_file(str(py_file))
+                if not any(excluded in py_file.parts for excluded in excluded_dirs):
+                    self.analyze_file(str(py_file))
 
         return self.findings
