@@ -1,4 +1,4 @@
-# CryptoGuard 🛡️
+# CryptoGuard 
 
 **Tech Stack:** Python 3 | `ast` | `tokenize` | `pytest` | GitHub Actions (CI/CD) | SARIF
 
