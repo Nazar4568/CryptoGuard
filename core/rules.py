@@ -29,7 +29,6 @@ class InsecureRandomRule(Rule):
 
 class WeakHashRule(Rule):
     def __init__(self):
-        # По умолчанию ставим HIGH, но мы будем динамически его менять
         super().__init__(id="CRYPTO002", severity=Severity.HIGH)
 
     def check(self, node: ast.AST) -> Finding | None:
