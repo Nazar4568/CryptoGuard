@@ -27,5 +27,3 @@ python main.py /path/to/your/project
 ```
 
 CI/CD Integration (GitHub Actions)CryptoGuard is designed to act as a Quality Gate in your pipelines. If vulnerabilities are found, it exits with a non-zero status code (exit 1) to block vulnerable PRs.It automatically generates a results.sarif file that can be uploaded to GitHub Security tabs using the github/codeql-action/upload-sarif action. Check the .github/workflows/security_gate.yml file for a working example.
-
-Current RulesetRule IDSeverityDescriptionCRYPTO001HIGHDetects the use of import random in security contexts (suggests secrets module).CRYPTO002DYNAMICDetects legacy/weak hashing algorithms like MD5 or SHA1. Severity scales from LOW to CRITICAL based on argument naming heuristics.
